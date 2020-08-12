@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sales",
+  "info": {
+    "name": "Sales"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "Description": {
+      "type": "richtext",
+      "required": true
+    },
+    "start_date": {
+      "type": "datetime"
+    },
+    "end_date": {
+      "type": "datetime"
+    },
+    "Location": {
+      "type": "string"
+    },
+    "Status": {
+      "type": "enumeration",
+      "enum": [
+        "Active",
+        "Pending",
+        "Archived"
+      ]
+    },
+    "product_image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "category": {
+      "collection": "category"
+    },
+    "brand": {
+      "model": "brands"
+    }
+  }
+}
